@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const emoji1 = ['🍉', '🍍', '🥒', '🥕', '🥥', '🍆', '🍈', '🥑', '🍒', '🍑'];
   const emoji2 = ['🚁', '🚢', '🚀', '🛴', '🚜', '🚲', '🚗', '🚕', '🚒', '🚂'];
-  const emoji3 = ['🦋', '🐹', '🦇', '🐼', '🦎', '🐥', '🐢', '🐌', '🐞', '🐳'];
+  const emoji3 = ['🐹', '🦋', '🦇', '🐼', '🦎', '🐥', '🐢', '🐌', '🐞', '🐳'];
 
 
   const initialSquares = new Array(20).fill(
@@ -27,19 +27,20 @@ function App() {
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = () => setShowModal(true);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         fillBoard()
     }, []);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         checkMove()
-    }, [history, squares, countStop, countMoves]);
-
+    }, [history]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         if (countStop === emoji1.length) {
             handleShowModal();
         }
-    }, [countStop, emoji1.length, handleShowModal]);
+    }, [countStop]);
 
 function fillBoard(){
     const emoji = getRandomEmojiSet()
