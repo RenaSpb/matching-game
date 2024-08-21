@@ -33,13 +33,13 @@ function App() {
 
     useEffect(() => {
         checkMove()
-    }, [history]);
+    }, [history, squares, countStop, countMoves]);
 
     useEffect(() => {
         if (countStop === emoji1.length) {
             handleShowModal();
         }
-    }, [countStop]);
+    }, [countStop, emoji1.length, handleShowModal]);
 
 function fillBoard(){
     const emoji = getRandomEmojiSet()
