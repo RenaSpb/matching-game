@@ -27,20 +27,22 @@ function App() {
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = () => setShowModal(true);
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    /* eslint-disable react-hooks/exhaustive-deps */
     useEffect(() => {
         fillBoard()
     }, []);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     useEffect(() => {
         checkMove()
     }, [history]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     useEffect(() => {
         if (countStop === emoji1.length) {
             handleShowModal();
         }
     }, [countStop]);
+    /* eslint-enable react-hooks/exhaustive-deps */
 
 function fillBoard(){
     const emoji = getRandomEmojiSet()
